@@ -1,4 +1,4 @@
-#! /bin/sh -x
+#! /bin/sh
 
 EMACS_DIR=$HOME/.emacs.d/
 EMACS_ELPA_DIR=$EMACS_DIR/elpa/
@@ -24,5 +24,5 @@ if [ ! -z $MYGROUP ]; then
     fi
 fi
 
-cd $LOGNAME
+cd /home/$LOGNAME
 su $LOGNAME -c "exec $@"

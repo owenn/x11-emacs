@@ -12,7 +12,7 @@ IMAGE_NAME=emacs
 
 all: .build .run
 .run:
-	docker run -ti -e DISPLAY=$(DISPLAY) -e MYID=$(shell id -u) \
+	@docker run -ti -e DISPLAY=$(DISPLAY) -e MYID=$(shell id -u) \
 	-e MYGROUP=$(shell id -g) -e LOGNAME=$(LOGNAME) -v /tmp/.X11-unix:/tmp/.X11-unix \
 	-v $(HOME):/home/developer \
   -v /usr/share/fonts/:/usr/share/fonts/ \
