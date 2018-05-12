@@ -13,9 +13,7 @@ Emacs from Alpine community repository with MELPA setting.
 	docker run -ti -e DISPLAY=$(DISPLAY) -e MYID=$(shell id -u) \
 	-e MYGROUP=$(shell id -g) -e LOGNAME=$(LOGNAME) -v /tmp/.X11-unix:/tmp/.X11-unix \
 	-v $(HOME):/home/developer \
-	-v /usr/share/fonts/:/usr/share/fonts/ \
-	$(IMAGE_NAME)
-
+	-v /usr/share/fonts/:/usr/share/fonts/ owenn/x11-emacs
 ```
 
 ## Environment Variables

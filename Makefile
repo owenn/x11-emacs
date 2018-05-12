@@ -1,4 +1,4 @@
-IMAGE_NAME=emacs
+IMAGE_NAME=owenn/x11-emacs
 
 .build:
 	docker build . -t $(IMAGE_NAME)
@@ -14,6 +14,7 @@ all: .build .run
 .run:
 	@docker run -ti -e DISPLAY=$(DISPLAY) -e MYID=$(shell id -u) \
 	-e MYGROUP=$(shell id -g) -e LOGNAME=$(LOGNAME) -v /tmp/.X11-unix:/tmp/.X11-unix \
+	--net=host \
 	-v $(HOME):/home/developer \
   -v /usr/share/fonts/:/usr/share/fonts/ \
 	$(IMAGE_NAME)
