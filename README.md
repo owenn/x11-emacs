@@ -2,7 +2,10 @@
 
 [![Docker Build Status](https://img.shields.io/docker/build/owenn/x11-emacs.svg)](https://hub.docker.com/r/owenn/x11-emacs/)
 
-Emacs from Alpine community repository with MELPA setting.
+Emacs from Alpine community repository with MELPA setting. Running the docker 
+image with the options below uses your local $HOME on the host running the 
+docker image. Additionally I have added go and git functionality to the image. 
+I use this image with spacemacs, and all the go functionality works.
 
 * Alpine Linux v3.7
 * Emacs v25.3
