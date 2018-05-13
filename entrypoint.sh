@@ -19,8 +19,11 @@ if [ ! -z $MYGROUP ]; then
     addgroup $MYGROUP
     if [ ! -z $MYID ]; then
         ln -s /home/developer /home/$LOGNAME
-        adduser -s /bin/bash -u $MYID -G $MYGROUP -h /home/$LOGNAME $LOGNAME \
-                -DH
+		# Stopped using adduser as uid on system are greater than max allowed alpine
+		echo "$LOGNAME:x:$MYID:$MYGROUP:Linux User:/home/$LOGNAME:/bin/bash"  >> /etc/passwd
+		echo "$LOGNAME:!::0:::::" >> /etc/shadow 
+        #adduser -s /bin/bash -u $MYID -G $MYGROUP -h /home/$LOGNAME $LOGNAME \
+        #        -DH
     fi
 fi
 

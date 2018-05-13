@@ -5,7 +5,7 @@ IMAGE_NAME=owenn/x11-emacs
 
 .run_debug:
 	docker run -ti -e DISPLAY=$(DISPLAY) -e MYID=$(shell id -u) \
-		-e MYGROUP=$(shell id -g) \
+		-e MYGROUP=$(shell id -g) -e LOGNAME=$(LOGNAME) \
 		-v /tmp/.X11-unix:/tmp/.X11-unix  \
 		-v $(HOME):/home/developer \
 		$(IMAGE_NAME) /bin/bash
@@ -13,8 +13,10 @@ IMAGE_NAME=owenn/x11-emacs
 all: .build .run
 .run:
 	@docker run -ti -e DISPLAY=$(DISPLAY) -e MYID=$(shell id -u) \
-	-e MYGROUP=$(shell id -g) -e LOGNAME=$(LOGNAME) -v /tmp/.X11-unix:/tmp/.X11-unix \
+	-e MYGROUP=$(shell id -g) -e LOGNAME=$(LOGNAME) \
+	-e GOPATH=$(GOPATH) \
 	--net=host \
+	-v /tmp/.X11-unix:/tmp/.X11-unix \
 	-v $(HOME):/home/developer \
   -v /usr/share/fonts/:/usr/share/fonts/ \
 	$(IMAGE_NAME)
