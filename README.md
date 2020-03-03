@@ -13,8 +13,8 @@ I use this image with spacemacs, and all the go functionality works.
 ## How to use this image
 
 ```console
-	docker run -ti -e DISPLAY=$(DISPLAY) -e MYID=$(shell id -u) \
-	-e MYGROUP=$(shell id -g) -e LOGNAME=$(LOGNAME) -v /tmp/.X11-unix:/tmp/.X11-unix \
+	docker run -ti -e DISPLAY=$DISPLAY -e MYID=$(id -u) \
+	-e MYGROUP=$(id -g) -e LOGNAME=$LOGNAME -v /tmp/.X11-unix:/tmp/.X11-unix \
 	-v $(HOME):/home/developer \
 	-v /usr/share/fonts/:/usr/share/fonts/ owenn/x11-emacs
 ```
